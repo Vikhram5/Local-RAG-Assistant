@@ -48,17 +48,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-<!-- Example `requirements.txt`:
-```
-flask
-flask-cors
-PyMuPDF
-llama-index
-chromadb
-sentence-transformers
-langchain
-openai
-``` -->
 
 ### 3. Run the Server
 
@@ -68,6 +57,13 @@ python app.py
 
 Server will start at:  
 `http://localhost:5001`
+
+### 4. Run the model
+
+```bash
+ollama run llama3.2
+```
+
 
 ## 📒 Advantages of Local RAG Assistant
 
