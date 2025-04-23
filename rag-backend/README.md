@@ -1,7 +1,7 @@
 
 # 📘 AI-Powered PDF Question Answering API
 
-This project is a Flask-based API that allows users to upload PDFs, process them into chunks, store embeddings using ChromaDB, and ask questions based on the content using LLaMA 3.2 via Ollama and sentence embeddings via HuggingFace.
+This project is a Flask-based API that allows users to upload PDFs, process them into chunks, store embeddings using ChromaDB, and ask questions based on the content using LLaMA 3.2 via Ollama and sentence embeddings via HuggingFace locally in the system.
 
 ## 🚀 Features
 
@@ -10,7 +10,6 @@ This project is a Flask-based API that allows users to upload PDFs, process them
 - Store embeddings in **Chroma** vector store.
 - Query document content using semantic similarity.
 - Format AI-generated answers with HTML for frontend display.
-- Cross-Origin Resource Sharing (CORS) enabled for frontend development.
 
 ## 🛠️ Technologies Used
 
@@ -20,8 +19,7 @@ This project is a Flask-based API that allows users to upload PDFs, process them
 - **HuggingFace Transformers** – Sentence embeddings
 - **ChromaDB** – Lightweight vector store
 - **Ollama** – LLM model host (LLaMA 3.2)
-- **LangChain** – Text splitting
-- **OpenAI** – For API key registration (if expanded)
+- **LangChain** 
 
 ## 🧠 How It Works
 
@@ -39,17 +37,18 @@ This project is a Flask-based API that allows users to upload PDFs, process them
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/pdf-ai-qa-api.git
-cd pdf-ai-qa-api
+cd rag-backend
 ```
 
-### 2. Install Requirements
+### 2. Create a virtual Environment
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate 
 pip install -r requirements.txt
 ```
 
-Example `requirements.txt`:
+<!-- Example `requirements.txt`:
 ```
 flask
 flask-cors
@@ -59,16 +58,9 @@ chromadb
 sentence-transformers
 langchain
 openai
-```
+``` -->
 
-### 3. Set Environment Variables
-
-Set your OpenAI key if needed:
-```bash
-export OPENAI_API_KEY="your_openai_key"
-```
-
-### 4. Run the Server
+### 3. Run the Server
 
 ```bash
 python app.py
@@ -77,49 +69,28 @@ python app.py
 Server will start at:  
 `http://localhost:5001`
 
-## 📡 API Endpoints
+## 📒 Advantages of Local RAG Assistant
 
-### `POST /upload`
-**Request**: Multipart Form with `file=<PDF File>`  
-**Response**: JSON
-
-```json
-{
-  "message": "PDF processed successfully!"
-}
-```
-
-### `POST /ask`
-**Request Body** (JSON):
-
-```json
-{
-  "question": "What is the main topic of Chapter 3?"
-}
-```
-
-**Response** (Formatted HTML in JSON):
-
-```json
-{
-  "answer": "<div><h3>Chapter 3:</h3><br>...</div>"
-}
-```
+  - Offline Access: Works without internet once set up.
+	- Privacy First: Your files and questions never leave your device.
+	- Fast Responses: Local model + local search = quick answers.
+	- Custom Knowledge: Ask questions from your own documents.
+	- No API Costs: No need to pay for external APIs.
+	- Flexible & Customizable: Swap models, update features anytime.
+	- Great for Learning: Ideal for students, teachers, and researchers.
 
 ## ⚡ Performance
 
-- **Speed**: Fast for small to medium PDFs (1–50 pages). Chroma + HuggingFace embeddings are efficient. Ollama inference speed depends on local setup.
+- **Speed**: Fast for medium-sized PDFs. Chroma + HuggingFace embeddings are efficient. Ollama inference speed depends on local setup.
 - **Bottlenecks**:
   - Initial PDF processing (text extraction + embedding)
   - Ollama LLM response generation (depending on hardware)
 - **Optimizations**:
   - Persistent indexing instead of re-creating on every upload
   - Background tasking for long-running operations
-  - Use `llama-cpp` for even faster local inference (if needed)
 
 ## 🧩 Future Improvements
 
 - Add persistent Chroma storage
+- Add more efficient methods of retrieving content for larger pdfs
 - Implement user session-based indexing
-- Add PDF title or metadata handling
-- Enhance UI with answer highlighting and voice output (TTS)
