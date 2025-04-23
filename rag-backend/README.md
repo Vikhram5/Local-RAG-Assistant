@@ -75,18 +75,3 @@ ollama run llama3.2
 	- Flexible & Customizable: Swap models, update features anytime.
 	- Great for Learning: Ideal for students, teachers, and researchers.
 
-## ⚡ Performance
-
-- **Speed**: Fast for medium-sized PDFs. Chroma + HuggingFace embeddings are efficient. Ollama inference speed depends on local setup.
-- **Bottlenecks**:
-  - Initial PDF processing (text extraction + embedding)
-  - Ollama LLM response generation (depending on hardware)
-- **Optimizations**:
-  - Persistent indexing instead of re-creating on every upload
-  - Background tasking for long-running operations
-
-## 🧩 Future Improvements
-
-- Add persistent Chroma storage
-- Add more efficient methods of retrieving content for larger pdfs
-- Implement user session-based indexing
