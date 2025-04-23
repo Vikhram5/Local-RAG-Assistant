@@ -11,15 +11,6 @@ This project is a Flask-based API that allows users to upload PDFs, process them
 - Query document content using semantic similarity.
 - Format AI-generated answers with HTML for frontend display.
 
-## 🛠️ Technologies Used
-
-- **Flask** – Backend API framework
-- **PyMuPDF (fitz)** – PDF parsing
-- **LlamaIndex** – Vector index management
-- **HuggingFace Transformers** – Sentence embeddings
-- **ChromaDB** – Lightweight vector store
-- **Ollama** – LLM model host (LLaMA 3.2)
-- **LangChain** 
 
 ## 🧠 How It Works
 
@@ -64,11 +55,21 @@ Server will start at:
 ollama run llama3.2
 ```
 
+<!-- ## 🛠️ Technologies Used
+
+- **Flask** – Backend API framework
+- **PyMuPDF (fitz)** – PDF parsing
+- **LlamaIndex** – Vector index management
+- **HuggingFace Transformers** – Sentence embeddings
+- **ChromaDB** – Lightweight vector store
+- **Ollama** – LLM model host (LLaMA 3.2)
+- **LangChain**  -->
+
 
 ## 📒 Advantages of Local RAG Assistant
 
   - Offline Access: Works without internet once set up.
-	- Privacy First: Your files and questions never leave your device.
+  - Privacy First: Your files and questions never leave your device.
 	- Fast Responses: Local model + local search = quick answers.
 	- Custom Knowledge: Ask questions from your own documents.
 	- No API Costs: No need to pay for external APIs.
