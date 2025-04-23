@@ -33,7 +33,7 @@ def upload_pdf():
     return jsonify({"error": "No file received"}), 400
 
 
-#---------------------------------------Initialization--------------------------------------------------#
+#---------------------------------------Initialization of libraries--------------------------------------------------#
 
 UPLOAD_FOLDER = "data"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -101,7 +101,6 @@ def process_pdf(pdf_path):
     return index
 
 
-
 #---------------------------------------Respond to questions--------------------------------------------------#
 
 @app.route("/ask", methods=["POST"])
@@ -135,7 +134,7 @@ def ask_question():
 
     return jsonify({"answer": formatted_answer})
 
-#---------------------------------------format answer--------------------------------------------------#
+#---------------------------------------Format Answer--------------------------------------------------#
 
 def format_answer(answer):
     """Format the answer to make it more readable and structured."""
