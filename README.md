@@ -30,7 +30,7 @@ Each folder includes its own `README.md` with detailed setup instructions, depen
 Navigate to the `rag-backend` and `rag-frontend` respectively to run each of the files.
 ```
 
-## ⚡ Performance
+### ⚡ Performance
 
 - **Speed**: Fast for medium-sized PDFs. Chroma + HuggingFace embeddings are efficient. Ollama inference speed depends on local setup.
 - **Bottlenecks**:
@@ -40,7 +40,7 @@ Navigate to the `rag-backend` and `rag-frontend` respectively to run each of the
   - Persistent indexing instead of re-creating on every upload
   - Background tasking for long-running operations
 
-## 🧩 Future Improvements
+### 🧩 Future Improvements
 
 - Add persistent Chroma storage
 - Add more efficient methods of retrieving content for larger pdfs
