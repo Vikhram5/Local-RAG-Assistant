@@ -8,12 +8,12 @@ The **Local RAG (Retrieval-Augmented Generation) Assistant** is a full-stack, pr
 
 This project is divided into two parts:
 
-### Local-RAG-Assistant/
-### ├── rag-backend/     # Backend setup
-### │   └── README.md    # 📘 Backend setup and usage instructions
-### ├── rag-frontend/    # Frontend: React + Vite + Tailwind CSS
-### │   └── README.md    # 📘 Frontend setup
-### └── README.md        # 📍 This file (overall summary)
+## Local-RAG-Assistant/
+# ├── rag-backend/     # Backend setup
+# │   └── README.md    # 📘 Backend setup and usage instructions
+# ├── rag-frontend/    # Frontend: React + Vite + Tailwind CSS
+# │   └── README.md    # 📘 Frontend setup
+# └── README.md        # 📍 This file (overall summary)
 
 ###  Clone the Repo
 
