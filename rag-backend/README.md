@@ -1,5 +1,5 @@
 
-# 📘 AI-Powered PDF Question Answering API
+# 📘 AI-Powered Local RAG Edu-Assistant Backend
 
 This project is a Flask-based API that allows users to upload PDFs, process them into chunks, store embeddings using ChromaDB, and ask questions based on the content using LLaMA 3.2 via Ollama and sentence embeddings via HuggingFace locally in the system.
 
