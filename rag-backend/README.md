@@ -34,7 +34,7 @@ This project is a Flask-based API that allows users to upload PDFs, process them
 
 ## 📦 Setup & Run
 
-### 1. Clone the Repository
+### 1. Run the backend
 
 ```bash
 cd rag-backend
