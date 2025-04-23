@@ -15,6 +15,26 @@ import re
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://192.168.0.101:5173","http://10.11.159.126:5173"]}})
 
+#---------------------------------------Upload PDF--------------------------------------------------#
+
+@app.route("/upload", methods=["POST"])
+def upload_pdf():
+    """Handle PDF uploads and store embeddings."""
+    file = request.files.get("file")
+    if file:
+        file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+        file.save(file_path)
+        
+        # Process the PDF and store the index
+        global index
+        index = process_pdf(file_path)
+
+        return jsonify({"message": "PDF processed successfully!"}), 200
+    return jsonify({"error": "No file received"}), 400
+
+
+#---------------------------------------Initialization--------------------------------------------------#
+
 UPLOAD_FOLDER = "data"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -31,6 +51,9 @@ vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
 index = None
+
+
+#---------------------------------------Extract Text from PDF--------------------------------------------------#
 
 def extract_text_from_pdf(pdf_path):
     doc = fitz.open(pdf_path)
@@ -77,22 +100,6 @@ def process_pdf(pdf_path):
 
     return index
 
-#---------------------------------------Upload PDF--------------------------------------------------#
-
-@app.route("/upload", methods=["POST"])
-def upload_pdf():
-    """Handle PDF uploads and store embeddings."""
-    file = request.files.get("file")
-    if file:
-        file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-        file.save(file_path)
-        
-        # Process the PDF and store the index
-        global index
-        index = process_pdf(file_path)
-
-        return jsonify({"message": "PDF processed successfully!"}), 200
-    return jsonify({"error": "No file received"}), 400
 
 
 #---------------------------------------Respond to questions--------------------------------------------------#
@@ -159,7 +166,6 @@ def format_answer(answer):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001, debug=True)
-
 
 
 #Vikhram
